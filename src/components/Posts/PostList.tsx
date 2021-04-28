@@ -5,34 +5,20 @@ import { getBooks } from '../../service/httpClient';
 import PostCard from './PostCard';
 import './PostList.css';
 
-function PostList() {
+function PostList(currentPosts: Array<Book>) {
+  console.log(currentPosts);
 
-  const [currentPosts, setCurrentPosts] = useState<Array<any>>([]);
-
-  const fetchData = React.useCallback(() => {
-    getBooks()
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.books);
-      return setCurrentPosts(data.books);
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }, [])
-
-  React.useEffect(() => {
-    fetchData()
-  }, [fetchData])
 //runs at the begining and each time data is loaded, doesn't reload api call
+ var newArrayDataOfOjbect = Object.values(currentPosts)
+
 
   return (
   <div className='cards'>
-      { currentPosts.length > 0 
-      ? currentPosts.map((book: Book) => 
+      { newArrayDataOfOjbect.length > 0 
+      ? newArrayDataOfOjbect.map((book: Book) => 
         <PostCard {...book} />
       )
-      : ' \n not yet' }
+      : ' \n not yet (imagine spinners... or dragons :)' }
   </div>
   );
     

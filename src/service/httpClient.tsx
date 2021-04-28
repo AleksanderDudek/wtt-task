@@ -1,10 +1,7 @@
-import axios from 'axios';
-
 const apiUrl= 'http://localhost:3001';
 
 const dbUris = {
-    books: apiUrl + '/books',
-    hardcodedBooks: 'http://localhost:3001/books'
+    books: apiUrl + '/books'
 };
 
 //get all books

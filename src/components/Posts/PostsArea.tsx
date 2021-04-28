@@ -1,10 +1,12 @@
+import { Book } from '../../models/Books';
 import PostList from './PostList';
 
-function PostsArea() {
+function PostsArea(currentPosts : Array<Book>) {
+  console.log(currentPosts);
 
   return (
-    <div>
-        <PostList />
+    <div style={{padding: 10}}>
+        <PostList {...currentPosts} />
     </div>
   );
 }

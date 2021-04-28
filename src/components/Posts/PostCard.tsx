@@ -5,21 +5,24 @@ import Chip from '@material-ui/core/Chip';
 import './PostCard.css';
 
 function PostCard(data:Book) {
+  console.log(data);
 
   return (
     <div className='card-container'>
-      <div>
-        fixed price tag: {data.price}
+      <div className='price-chip'>
+        {data.price}
       </div>  
       <div className='card'>
         <div className='container'>
-          <h3><b>{data.authorId}</b></h3> 
-          <h3><b>{data.title}</b></h3> 
+          <h3 style={{textAlign: 'start'}}><b>{data.authorId}</b></h3> 
+          <h3 style={{textAlign: 'start'}}><b>{data.title}</b></h3> 
           <p className='text'>{data.description}</p>
+          <div className='chips'>
           { data.tags.map(tag => <div className='chip'>
             {tag}
             </div> 
           )}
+          </div>
     </div>
     </div>    
     </div>
