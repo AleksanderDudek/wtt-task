@@ -3,7 +3,7 @@ import { Book } from '../../models/Books';
 import { getBooks } from '../../service/httpClient';
 
 import PostCard from './PostCard';
-
+import './PostList.css';
 
 function PostList() {
 
@@ -27,11 +27,15 @@ function PostList() {
 //runs at the begining and each time data is loaded, doesn't reload api call
 
   return (
-    <>
-      post list
-      { currentPosts.length > 0 ? currentPosts.map((book: Book) => <PostCard {...book} />) : ' \n not yet' }
-    </>
+  <div className='cards'>
+      { currentPosts.length > 0 
+      ? currentPosts.map((book: Book) => 
+        <PostCard {...book} />
+      )
+      : ' \n not yet' }
+  </div>
   );
-}
+    
+};
 
 export default PostList;

@@ -7,8 +7,8 @@ function StickyHeader() {
 
   return (
     <div>
-      <div style='  align-content: center;'>
-        WTT Rercruitment Task
+      <div style={{alignContent: 'center'}}>
+        WTT Recruitment Task
       </div>
       {/* this is collapsable */}
       <div>
