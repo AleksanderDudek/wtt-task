@@ -22,6 +22,10 @@ Also after writing interface for IPriceCheckbox I noticed it
 could be utilized as ITagCheckbox, so there could be common 
 type.  
 
+As for those collapsables I chose to join them in 1 responsive
+div. What I would do next to match design would be a single 
+collapsable FILTERS. Additionaly header could be sticky. This 
+way UX would be friendly for both mobile and web users.
 
 # Getting Started with Create React App
 
