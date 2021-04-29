@@ -5,7 +5,6 @@ import Chip from '@material-ui/core/Chip';
 import './PostCard.css';
 
 function PostCard(data:Book) {
-  console.log(data);
 
   return (
     <div className='card-container'>

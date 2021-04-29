@@ -1,24 +1,3 @@
-.panel-heading.collapsed .fa-chevron-down,
-.panel-heading .fa-chevron-right {
-  display: none;
-  float: right;
-}
-
-.panel-heading.collapsed .fa-chevron-right,
-.panel-heading .fa-chevron-down {
-  display: inline-block;
-  float: right;
-}
-
-i.fa {
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.collapsed ~ .panel-body {
-  padding: 0;
-}
-
 
 .caption {
     text-align: center;
@@ -29,3 +8,13 @@ i.fa {
     color: black;
     line-height: 30px;
    }
+
+.header-container {
+    display: inline-flex;
+
+}
+
+.header-parent {
+    margin: 0 auto;
+    max-width: 1000px;
+}

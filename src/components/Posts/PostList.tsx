@@ -6,7 +6,6 @@ import PostCard from './PostCard';
 import './PostList.css';
 
 function PostList(currentPosts: Array<Book>) {
-  console.log(currentPosts);
 
 //runs at the begining and each time data is loaded, doesn't reload api call
  var newArrayDataOfOjbect = Object.values(currentPosts)

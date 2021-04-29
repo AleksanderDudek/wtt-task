@@ -21,8 +21,8 @@ function StickyHeader(props: IProps) {
         WTT Recruitment Task
       </p>
       {/* this is collapsable */}
-      <div>
-        <div>
+      <div className='header-parent'>
+        <div className='header-container'>
         <TagsDropdown setTags={setTags} tags={tags} />
         <PriceDropdown setPrices={setPrices} prices={prices} />
         </div>
