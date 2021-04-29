@@ -1,12 +1,26 @@
 # To check how the app looks please do type:
 
-### `yarn runit`
+### 1. `yarn install` in both './' and './server' 
+
+### 2. `yarn runit`
 
 I connected node server with react app startup. Thus we can enjoy 
 it by using 1 command.
 
 Please do note, that app runs on port 3000 and server on port 3001.
 Make sure you have those ports available at the time on startup.
+
+# Notes - task sum up
+
+So functionalities work fine.
+
+Overall I chose to finish functionalities as priority.
+Css is almost complete.
+
+Definately code needs refactor. There are some redundancies.
+Also after writing interface for IPriceCheckbox I noticed it 
+could be utilized as ITagCheckbox, so there could be common 
+type.  
 
 
 # Getting Started with Create React App
