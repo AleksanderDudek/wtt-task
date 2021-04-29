@@ -4,38 +4,44 @@ import './Dropdowns.css';
 const  staticTags =  ['javascript','fundamentals', 'advanced', 'css',
 'accessibility', 'svg', 'architecture'];
 const myStorage = window.localStorage;
+
+interface IPriceCheckbox {
+  priceTag: string,
+  isChecked: boolean
+}
 interface IProps {
+  checkboxPrice1: IPriceCheckbox,
+  setCheckboxPrice1: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+  checkboxPrice2: IPriceCheckbox,
+  setCheckboxPrice2: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+  checkboxPrice3: IPriceCheckbox,
+  setCheckboxPrice3: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+  checkboxTag1: IPriceCheckbox,
+      setCheckboxTag1: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+      checkboxTag2: IPriceCheckbox,
+      setCheckboxTag2: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+      checkboxTag3: IPriceCheckbox,
+      setCheckboxTag3: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+      checkboxTag4: IPriceCheckbox,
+      setCheckboxTag4: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+      checkboxTag5: IPriceCheckbox,
+      setCheckboxTag5: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+      checkboxTag6: IPriceCheckbox,
+      setCheckboxTag6: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+      checkboxTag7: IPriceCheckbox,
+      setCheckboxTag7: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
   tags: Array<string>,
-  setTags: React.Dispatch<React.SetStateAction<string[]>> 
+  setTags: React.Dispatch<React.SetStateAction<Array<string>>>,
+  prices: Array<string>,
+  setPrices: React.Dispatch<React.SetStateAction<Array<string>>>,
 }
 
 function TagsDropdown(props: IProps) {
 
-  const { setTags, tags } = props;
-
-  const [checkbox1, setScheckbox1] = useState(false);
-  const [checkbox2, setScheckbox2] = useState(false);
-  const [checkbox3, setScheckbox3] = useState(false);
-  const [checkbox4, setScheckbox4] = useState(false);
-  const [checkbox5, setScheckbox5] = useState(false);
-  const [checkbox6, setScheckbox6] = useState(false);
-  const [checkbox7, setScheckbox7] = useState(false);
-
-
- //add or remove defaultChecked string filters
- const updateTags = (currentValue: string, defaultChecked: boolean) => {
-  let array = tags;
-
- //remove from array if it appeared before
- if(!defaultChecked) array = array.filter(e => e !== currentValue);
-
-//add to array if it is selected
- if(defaultChecked) array.push(currentValue);
-
-//  console.log(array);
-
- setTags(array);
-}
+  const { setTags, tags, checkboxTag1, checkboxTag2, checkboxTag3, checkboxTag4,
+    checkboxTag5, checkboxTag6, checkboxTag7, setCheckboxTag1, setCheckboxTag2,
+    setCheckboxTag3, setCheckboxTag4, setCheckboxTag5, setCheckboxTag6,
+    setCheckboxTag7  } = props;
 
   return (
     <div>
@@ -43,78 +49,48 @@ function TagsDropdown(props: IProps) {
       <div className='checkbox-container'>
       
       <input type="checkbox" id={staticTags[0]} name={staticTags[0]} 
-      defaultChecked={checkbox1}
-      onClick={(event) => 
-        {
-          console.log('fire 1');
-          updateTags(staticTags[0], !checkbox1);
-          setScheckbox1(!checkbox1);
-        }
-      } />
+            checked={checkboxTag1.isChecked} onClick={() => setCheckboxTag1({
+              priceTag: staticTags[0], isChecked: !checkboxTag1.isChecked})}
+            />
       <label htmlFor={staticTags[0]}>{staticTags[0]}</label>
-           
+
       <input type="checkbox" id={staticTags[1]} name={staticTags[1]} 
-      defaultChecked={checkbox2}
-      onClick={(event) => 
-        {
-          console.log('fire 12');
-          updateTags(staticTags[1], !checkbox2);
-          setScheckbox2(!checkbox2);
-        }
-      } />
+            checked={checkboxTag2.isChecked} onClick={() => setCheckboxTag2({
+              priceTag: staticTags[1], isChecked: !checkboxTag2.isChecked})}
+            />
       <label htmlFor={staticTags[1]}>{staticTags[1]}</label>
-      
-      <input type="checkbox" id={staticTags[2]} name={staticTags[2]}
-      defaultChecked={checkbox3}
-      onClick={(event) => 
-      {
-        console.log('fire 123');
-        updateTags(staticTags[2], !checkbox3);
-        setScheckbox3(!checkbox3);
-      }
-    } />
+
+      <input type="checkbox" id={staticTags[2]} name={staticTags[2]} 
+            checked={checkboxTag3.isChecked} onClick={() => setCheckboxTag3({
+              priceTag: staticTags[2], isChecked: !checkboxTag3.isChecked})}
+            />
       <label htmlFor={staticTags[2]}>{staticTags[2]}</label>
 
-      <input type="checkbox" id={staticTags[3]} name={staticTags[3]}
-      defaultChecked={checkbox4}
-      onClick={(event) => 
-      {
-        console.log('fire 1234');
-        updateTags(staticTags[3], !checkbox4);
-        setScheckbox4(!checkbox4);
-      }
-    } />
+      <input type="checkbox" id={staticTags[3]} name={staticTags[3]} 
+            checked={checkboxTag4.isChecked} onClick={() => setCheckboxTag4({
+              priceTag: staticTags[3], isChecked: !checkboxTag4.isChecked})}
+            />
       <label htmlFor={staticTags[3]}>{staticTags[3]}</label>
 
-      <input type="checkbox" id={staticTags[4]} name={staticTags[4]}
-      defaultChecked={checkbox5}
-      onClick={(event) => 
-      {
-        updateTags(staticTags[4], !checkbox5);
-        setScheckbox5(!checkbox5);
-      }
-    } />
+      <input type="checkbox" id={staticTags[4]} name={staticTags[4]} 
+            checked={checkboxTag5.isChecked} onClick={() => setCheckboxTag5({
+              priceTag: staticTags[4], isChecked: !checkboxTag5.isChecked})}
+            />
       <label htmlFor={staticTags[4]}>{staticTags[4]}</label>
 
-      <input type="checkbox" id={staticTags[5]} name={staticTags[5]}
-      defaultChecked={checkbox6}
-      onClick={(event) => 
-      {
-        updateTags(staticTags[5], !checkbox6);
-        setScheckbox6(!checkbox6);
-      }
-    } />
+      <input type="checkbox" id={staticTags[5]} name={staticTags[5]} 
+            checked={checkboxTag6.isChecked} onClick={() => setCheckboxTag6({
+              priceTag: staticTags[5], isChecked: !checkboxTag6.isChecked})}
+            />
       <label htmlFor={staticTags[5]}>{staticTags[5]}</label>
 
-      <input type="checkbox" id={staticTags[6]} name={staticTags[6]}
-      defaultChecked={checkbox7}
-      onClick={(event) => 
-      {
-        updateTags(staticTags[6], !checkbox7);
-        setScheckbox7(!checkbox7);
-      }
-    } />
+      <input type="checkbox" id={staticTags[6]} name={staticTags[6]} 
+            checked={checkboxTag7.isChecked} onClick={() => setCheckboxTag7({
+              priceTag: staticTags[6], isChecked: !checkboxTag7.isChecked})}
+            />
       <label htmlFor={staticTags[6]}>{staticTags[6]}</label>
+     
+
       </div>
       </div>
   );

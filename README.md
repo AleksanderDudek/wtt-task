@@ -1,3 +1,14 @@
+# To check how the app looks please do type:
+
+### `yarn runit`
+
+I connected node server with react app startup. Thus we can enjoy 
+it by using 1 command.
+
+Please do note, that app runs on port 3000 and server on port 3001.
+Make sure you have those ports available at the time on startup.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

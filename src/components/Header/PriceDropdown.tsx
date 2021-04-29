@@ -3,31 +3,27 @@ import { useEffect, useState } from 'react';
 import './Dropdowns.css';
 const  priceAttrs =  ['<10$','10$-20$', '>20$'];
 
+interface IPriceCheckbox {
+  priceTag: string,
+  isChecked: boolean
+}
 interface IProps {
+  checkboxPrice1: IPriceCheckbox,
+  setCheckboxPrice1: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+  checkboxPrice2: IPriceCheckbox,
+  setCheckboxPrice2: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
+  checkboxPrice3: IPriceCheckbox,
+  setCheckboxPrice3: React.Dispatch<React.SetStateAction<IPriceCheckbox>>,
   prices: Array<string>,
-  setPrices: React.Dispatch<React.SetStateAction<string[]>>
+  setPrices: React.Dispatch<React.SetStateAction<Array<string>>>,
+  tags: Array<string>,
+  setTags: React.Dispatch<React.SetStateAction<Array<string>>>,
 }
 
 function PriceDropdown(props: IProps) {
 
-  const { prices, setPrices } = props;
-
-  const [checkbox1, setScheckbox1] = useState(false);
-  const [checkbox2, setScheckbox2] = useState(false);
-  const [checkbox3, setScheckbox3] = useState(false);
-
-  useEffect(() => {}, [setScheckbox1, setScheckbox2, setScheckbox3]);
-
-  //add or remove checked string filters
-  const updateFilters = (currentValue: string, checked: boolean) => {
-    let array = prices;
-   if(!checked) array = array.filter(e => e !== currentValue);
-   if(checked) array.push(currentValue);
-  
-  //  console.log(array);
-
-   setPrices(array);
-  }
+  const { checkboxPrice1, checkboxPrice2, checkboxPrice3, 
+    setCheckboxPrice1, setCheckboxPrice2, setCheckboxPrice3, prices  } = props;
   
   return (
     <div>
@@ -36,33 +32,20 @@ function PriceDropdown(props: IProps) {
       
 
             <input type="checkbox" id={priceAttrs[0]} name={priceAttrs[0]} 
-            checked={checkbox1}
-            onClick={(event) => 
-              {
-                setScheckbox1(!checkbox1);
-                updateFilters(priceAttrs[0], !checkbox1);
-              }
-            } />
+            checked={checkboxPrice1.isChecked} onClick={() => setCheckboxPrice1({priceTag: priceAttrs[0], isChecked: !checkboxPrice1.isChecked})}
+            />
             <label htmlFor={priceAttrs[0]}>{priceAttrs[0]}</label>
                  
             <input type="checkbox" id={priceAttrs[1]} name={priceAttrs[1]} 
-            checked={checkbox2}
-            onClick={(event) => 
-              {
-                setScheckbox2(!checkbox2);
-                updateFilters(priceAttrs[1], !checkbox2);
-              }
-            } />
+            checked={checkboxPrice2.isChecked} onClick={() => setCheckboxPrice2({priceTag: priceAttrs[1], isChecked: !checkboxPrice2.isChecked})}
+
+            />
             <label htmlFor={priceAttrs[1]}>{priceAttrs[1]}</label>
             
             <input type="checkbox" id={priceAttrs[2]} name={priceAttrs[2]}
-            checked={checkbox3}
-            onClick={(event) => 
-            {
-              setScheckbox3(!checkbox3);
-              updateFilters(priceAttrs[2], !checkbox3);
-            }
-          } />
+            checked={checkboxPrice3.isChecked} onClick={() => setCheckboxPrice3({priceTag: priceAttrs[2], isChecked: !checkboxPrice3.isChecked})}
+
+            />
             <label htmlFor={priceAttrs[2]}>{priceAttrs[2]}</label>
       </div>
     </div>
